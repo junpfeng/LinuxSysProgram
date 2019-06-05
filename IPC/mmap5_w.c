@@ -59,7 +59,10 @@ int main(int argc, char ** argv)
     while(num--)
     {
         stud.id = num;
-        memcpy(mm, &stud, sizeof(stud));
+//        memcpy(mm, &stud, sizeof(stud));
+        mm->id = num;
+        mm->sex = 's';
+        strcpy(mm->name, "num");
         sleep(1); 
     }
 
