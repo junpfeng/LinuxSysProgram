@@ -1,0 +1,16 @@
+# 忽略提交规则
+
+**/*.o
+
+**/mmap1
+
+**/mmap2
+**/mmap3
+**/mmap4
+**/mmap5_r
+**/mmap5_w
+**/p_01_fork
+
+
+pthread/consumers_producers 
+pthread/sem_producers_conducers
