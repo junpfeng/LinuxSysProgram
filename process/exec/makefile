@@ -1,15 +1,16 @@
-src = $(wildcard *.c)
+src=$(wildcard *.c)
 targets = $(patsubst %.c, %, $(src))
 
+CFALGS = -Wall -g
 CC = gcc
-CFLAGS = -Wall -g
 
-all:$(targets)
+.PHONY : all clean
 
-$(targets):%:%.c
-	$(CC) $< -o $@ $(CFLAGS)
+all : $(targets)
 
-.PHONY:clean all
-clean:
-	-rm -rf $(targets) 
+# 静态模式 %:%.c
+$(targets) : %:%.c
+	$(CC) $< -o $@
 
+clean :
+	rm -f $(targets) *.o
