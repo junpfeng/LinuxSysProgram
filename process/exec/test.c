@@ -2,6 +2,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+// > execv测试程序
+
 extern char **envrion;
 
 int main(void)

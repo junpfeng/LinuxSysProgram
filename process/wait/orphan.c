@@ -2,6 +2,8 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+// > 程序功能：观察子进程在变成孤儿进程前后，其父进程的进程ID的变换
+
 int main(void)
 {
     pid_t pid;

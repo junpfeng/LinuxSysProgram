@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+// > 程序功能：观察子进程死亡前后，父进程输出的子进程ID的变换
+
 int main(void)
 {
     pid_t pid, wpid;

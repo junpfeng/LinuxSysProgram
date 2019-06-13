@@ -20,7 +20,7 @@ lable:
 		wpid = wait(NULL);		//死等!!!
 		if(wpid == -1){
 			perror("wait error");
-			goto lable;
+			goto lable;  // 不要使用goto
 		}
 		printf("I'm parent, I catched child process,"
 				"pid = %d\n", wpid);

@@ -13,4 +13,4 @@ $(targets) : %:%.c
 	$(CC) $< -o $@
 
 clean :
-	rm -f $(targets) *.o
+	rm -f $(targets) *.o *.out

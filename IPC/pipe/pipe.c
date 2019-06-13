@@ -23,15 +23,15 @@ int main(void)
    pid = fork();
    if (pid < 0) {
        sys_err("fork err");
-   } else if (pid == 0) {
-        close(fd[1]);
-        int len = read(fd[0], buf, sizeof(buf));
-        write(STDOUT_FILENO, buf, len);
+   } else if (pid == 0) { // 子进程
+        close(fd[1]); // 子进程关闭写端
+        int len = read(fd[0], buf, sizeof(buf)); // 读取管道另一边的数据
+        write(STDOUT_FILENO, buf, len); // 将数据写入到标准输出--屏幕
         close(fd[0]);
-   } else {
-       close(fd[0]);
-       write(fd[1], p, strlen(p));
-       wait(NULL);
+   } else { // 父进程
+       close(fd[0]); // 子进程关闭读端
+       write(fd[1], p, strlen(p)); // 向写端写入长度为strlen(p)的数据
+       wait(NULL); // 等待子进程变僵尸进程
        close(fd[1]);
    }
     

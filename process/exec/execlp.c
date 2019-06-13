@@ -2,6 +2,9 @@
 #include <unistd.h>
 #include <stdio.h>
 
+// > execlp 函数第一个参数可以在PATH环境变量中搜索，
+// > 这是和execl唯一的区别
+
 int main(int argc, char *argv[])
 {
     printf("========================\n");

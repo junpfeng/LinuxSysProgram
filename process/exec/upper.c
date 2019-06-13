@@ -7,6 +7,7 @@ int main(void)
     int ch;
 
     while((ch = getchar()) != EOF) {
+        // 小写转大写
         putchar(toupper(ch));
     }
 

@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <unistd.h>
 
+// > execl 和 execlp的区别在于execl要使用可执行程序的绝对/相对地址
+// > 而不能搜索PATH路径
+//
+
 int main(void)
 {
     pid_t pid = fork();

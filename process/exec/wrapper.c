@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <fcntl.h>
 
+// > 程序功能：用于配合upper，测试execl函数的调用
+
 int main(int argc, char *argv[])
 {
     int fd;
