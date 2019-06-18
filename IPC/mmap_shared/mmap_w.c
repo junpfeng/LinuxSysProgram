@@ -7,6 +7,7 @@
 #include <sys/mman.h>
 #include <string.h>
 
+// 使用结构体进行数据传输
 struct STU {
     int id;
     char name[20];
@@ -36,7 +37,6 @@ int main(int argc, char *argv[])
     mm = mmap(NULL, sizeof(student), PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0);
     if (mm == MAP_FAILED)
         sys_err("mmap");
-
     close(fd);
 
     while (1) {
