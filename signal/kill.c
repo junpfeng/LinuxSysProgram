@@ -8,14 +8,18 @@ int main(void)
 {
     int i;
     pid_t pid, q;
+    
+    //-------下面两个信号，会终止当前进程------------
+    // raise函数，用于给当前所在进程发送信号(参数)
+//    raise(SIGSEGV); // 给自己发送了一个端错误信号,默认处理方式为终止进程
+//
+//    // 给自己发送一个异常终止信号
+//    abort(); // 默认处理方式是终止进程
 
-    raise(SIGSEGV);
-    abort();
-
-
+    // 循环创建5个进程
     for (i = 0; i < N; i++) {
         pid = fork();
-        if (pid == 0)
+        if (pid == 0) // 如果是子进程就退出循环，创建进程的任务交给父进程
             break;
         if (i == 2)
             q = pid;
@@ -27,7 +31,9 @@ int main(void)
         }
 
     } else {
+        // 父进程
         sleep(1);
+        // 给指定的进程发送无条件终止信号
         kill(q, SIGKILL);
         while (1);
     }
